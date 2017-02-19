@@ -20,20 +20,17 @@ function PolygonGeometry(sides, location) {
 		// Add 90 degrees so we start at +Y axis, rotate counterclockwise around
 		var angle = (Math.PI/2) + (pt / sides) * 2 * Math.PI;
 
-		var x = Math.cos( angle );
-		var y = Math.sin( angle );
-
-		// Save the vertex location
-		geo.vertices.push( new THREE.Vector3( x, y, 0.0 ) );
+		var x = Math.cos( angle ) + location;
+		var y = Math.sin( angle ) + location;
+		
+		// YOUR CODE HERE
+		geo.vertices.push(new THREE.Vector3(x, y, 0));
 	}
 
-	// generate faces
-	for ( var face = 0 ; face < sides-2; face++ )
-	{
-		// this makes a triangle fan, from the first +Y point around
-		geo.faces.push( new THREE.Face3( 0, face+1, face+2 ) );
-	}	
-	// done: return it.
+	// YOUR CODE HERE
+	for (var face = 0 ; face < sides - 2; face++)
+		geo.faces.push (new THREE.Face3 (0, face + 1, face + 2));
+
 	return geo;
 }
 
