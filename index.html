@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment manage</title>
+</head>
+<body>
+<p>
+    <select id="lesson" onchange="scriptLoader()">
+        <option value="polygongeometry1.js" selected>Assignment-1</option>
+        <option value="polygongeometry2.js">Assignment-2</option>
+        <option value="polygongeometry3.js">Assignment-3</option>
+        <option value="buildstair.js">Assignment-4</option>
+        <option value="drinkngbird.js">Assignment-5</option>
+    </select>
+</p>
+<div id="container"></div>
+</body>
+<!-- loader script -->
+<script src="lib/three.js"></script>
+<script src="lib/Detector.js"></script>
+<script src="lib/Coordinates.js"></script>
+<script src="lib/OrbitAndPanControls.js"></script>
+<script src="lib/stats.min.js"></script>
+<script src="lib/dat.gui.min.js"></script>
+<script>
+
+    //onload window
+    window.onload = function () {
+        scriptLoader();
+    };
+
+    //on select lesson
+    function scriptLoader() {
+
+        //verify has exist
+        if ( document.getElementById('script') )
+            document.body.removeChild(document.getElementById('script'));
+
+        //create and config element
+        var tgScript = document.createElement("script");
+        tgScript.id = "script";
+        tgScript.src = document.getElementById('lesson').value;
+        document.body.appendChild(tgScript);
+    }
+
+</script>
+</html>
